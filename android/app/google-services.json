@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "648366842061",
+    "project_id": "pulsenoter",
+    "storage_bucket": "pulsenoter.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:648366842061:android:a026404babe25621b0c984",
+        "android_client_info": {
+          "package_name": "com.example.pulse_note"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9xNEa0QXc2BlC34m5OeKtW-2jb6-Q3zM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
