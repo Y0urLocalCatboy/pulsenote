@@ -193,24 +193,53 @@ class _HomePageState extends State<HomePage> {
                         },
                       ),
                       const SizedBox(height: 20),
-                      SizedBox(
-                        width: double.infinity,
-                        child: ElevatedButton.icon(
-                          onPressed: _isLoading ? null : _saveEntry,
-                          icon: _isLoading
-                              ? const SizedBox(
-                                  width: 16,
-                                  height: 16,
-                                  child: CircularProgressIndicator(
-                                    strokeWidth: 2,
-                                  ),
-                                )
-                              : const Icon(Icons.save),
-                          label: Text(_isLoading ? 'Saving...' : 'Save Entry'),
-                          style: ElevatedButton.styleFrom(
-                            padding: const EdgeInsets.all(16),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          ElevatedButton(
+                            onPressed: _isLoading ? null : _saveEntry,
+                            style: ElevatedButton.styleFrom(
+                              padding: const EdgeInsets.all(16),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(_isLoading ? 'Saving...' : 'Save Entry'),
+                                const SizedBox(width: 8),
+                                _isLoading
+                                    ? const SizedBox(
+                                        width: 16,
+                                        height: 16,
+                                        child: CircularProgressIndicator(
+                                          strokeWidth: 2,
+                                        ),
+                                      )
+                                    : const Icon(Icons.save),
+                              ],
+                            ),
                           ),
-                        ),
+                          const SizedBox(height: 12),
+                          OutlinedButton(
+                            onPressed: () {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text('Charts feature coming soon!'),
+                                ),
+                              );
+                            },
+                            style: OutlinedButton.styleFrom(
+                              padding: const EdgeInsets.all(16),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: const [
+                                Text('View Charts'),
+                                SizedBox(width: 8),
+                                Icon(Icons.show_chart),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
@@ -316,15 +345,6 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Charts feature coming soon!')),
-          );
-        },
-        icon: const Icon(Icons.show_chart),
-        label: const Text('View Charts'),
       ),
     );
   }
